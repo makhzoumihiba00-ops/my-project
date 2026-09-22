@@ -510,6 +510,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
         'calendar' => '<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 11h18m-14 4h2m4 0h2"/>',
         'users' => '<circle cx="9" cy="8" r="3"/><path d="M3 21v-2a6 6 0 0 1 12 0v2M16 5a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 4v2"/>',
         'heart' => '<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>',
+        'globe' => '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18M4.5 6.5c2.3 1.8 5.1 2.7 7.5 2.7s5.2-.9 7.5-2.7M4.5 17.5c2.3-1.8 5.1-2.7 7.5-2.7s5.2.9 7.5 2.7"/>',
         'compass' => '<circle cx="12" cy="12" r="9"/><path d="m16 8-2.5 5.5L8 16l2.5-5.5L16 8Z"/>',
         'cup' => '<path d="M4 9h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Zm13 0h1a3 3 0 0 1 0 6h-1M7 3v3m4-3v3m4-3v3M2 23h19"/>',
         'leaf' => '<path d="M20 3c-4 0-7-2-12 3-5 5-3 10 1 12 4 2 11-1 11-9V3ZM3 21 15 9"/>',
@@ -653,10 +654,39 @@ Do not remove the preview warnings merely to make an unconnected form look live.
         .nav-links a {font-size:12px;font-weight:500;display:inline-flex;align-items:center;min-height:44px;position:relative}
         .nav-links a::after {content:'';height:2px;position:absolute;bottom:7px;left:0;right:0;background:var(--terracotta);transform:scaleX(0);transform-origin:left;transition:transform .2s}
         .nav-links a:hover::after,.nav-links a[aria-current="location"]::after {transform:scaleX(1)}
-        .nav-actions {display:flex;align-items:center;gap:13px}
+        .nav-actions {display:flex;align-items:center;gap:13px;position:relative}
         .nav-actions .button {min-height:44px;padding:12px 18px;font-size:12px}
+        .language-switcher {position:relative}
+        .locale-toggle {position:relative}
+        .locale-menu {
+            position:absolute; right:0; top:calc(100% + 10px); min-width:190px; z-index:60;
+            background:rgba(255,255,255,.98); border:1px solid var(--line); border-radius:14px;
+            box-shadow:0 18px 40px rgba(36,47,37,.1); overflow:hidden; padding:8px;
+        }
+        .locale-menu[hidden] {display:none}
+        .locale-option {
+            width:100%; display:flex; align-items:center; gap:10px; justify-content:flex-start;
+            min-height:42px; border-radius:10px; padding:9px 12px; font-size:12px; font-weight:500; color:var(--ink);
+            transition:background .2s,transform .2s;
+        }
+        .locale-option:hover {background:var(--sand)}
+        .locale-option.is-active {background:var(--green-soft); color:var(--green); font-weight:600}
+        .locale-flag {display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#f1efe8;font-size:15px}
         .menu-toggle {display:none}
         .mobile-menu {display:none}
+        html[dir="rtl"] body {direction:rtl;text-align:right}
+        html[dir="rtl"] .nav-bar, html[dir="rtl"] .nav-links, html[dir="rtl"] .nav-actions, html[dir="rtl"] .brand, html[dir="rtl"] .section-heading, html[dir="rtl"] .gallery-header, html[dir="rtl"] .footer-main, html[dir="rtl"] .footer-bottom, html[dir="rtl"] .contact-grid, html[dir="rtl"] .faq-grid, html[dir="rtl"] .about-grid {direction:rtl}
+        html[dir="rtl"] .nav-bar {flex-direction:row-reverse}
+        html[dir="rtl"] .nav-links {flex-direction:row-reverse}
+        html[dir="rtl"] .nav-actions {flex-direction:row-reverse}
+        html[dir="rtl"] .locale-menu {right:auto; left:0}
+        html[dir="rtl"] .locale-option {justify-content:flex-end}
+        html[dir="rtl"] .about-secondary {right:auto;left:0}
+        html[dir="rtl"] .hero-caption {left:var(--page-gutter);right:auto}
+        html[dir="rtl"] .finder-field {border-right:0;border-left:1px solid var(--line)}
+        @media (max-width: 950px) {
+            html[dir="rtl"] .mobile-menu a {justify-content:flex-end}
+        }
         /* 03. Hero, discovery form and benefit strip */
         .hero {width:100%;max-width:none;margin:0;position:relative;isolation:isolate;overflow:hidden;border-radius:0;background:#6b513a;color:#fff}
         .hero-photo {position:absolute;inset:-5% 0;width:100%;height:110%;object-fit:cover;object-position:center 53%;z-index:-2}
@@ -1520,33 +1550,49 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             <span><span class="brand-name">{{ $site['name'] }}</span><span class="brand-tagline">{{ $site['tagline'] }}</span></span>
         </a>
         <nav class="nav-links" aria-label="Main navigation">
-            <a href="#experiences" data-nav="experiences">Experiences</a>
-            <a href="#about" data-nav="about">Our story</a>
-            <a href="#moments" data-nav="moments">The moments</a>
-            <a href="#stories" data-nav="stories">Guest stories</a>
-            <a href="#contact" data-nav="contact">Get in touch</a>
+            <a href="#experiences" data-nav="experiences" data-i18n="nav_experiences">Experiences</a>
+            <a href="#about" data-nav="about" data-i18n="nav_story">Our story</a>
+            <a href="#moments" data-nav="moments" data-i18n="nav_moments">The moments</a>
+            <a href="#stories" data-nav="stories" data-i18n="nav_stories">Guest stories</a>
+            <a href="#contact" data-nav="contact" data-i18n="nav_contact">Get in touch</a>
         </nav>
         <div class="nav-actions">
-            <a class="button button-green" href="#experiences">Find my escape {!! $icon('arrow-up') !!}</a>
+            <div class="language-switcher">
+                <button class="icon-button locale-toggle" id="locale-toggle" type="button" aria-label="Select language" aria-expanded="false" aria-controls="locale-menu">
+                    {!! $icon('globe') !!}
+                </button>
+                <div class="locale-menu" id="locale-menu" role="menu" aria-label="Language selection" hidden>
+                    <button class="locale-option is-active" type="button" data-lang="en" role="menuitemradio" aria-checked="true">
+                        <span class="locale-flag" aria-hidden="true">🇬🇧</span><span>English</span>
+                    </button>
+                    <button class="locale-option" type="button" data-lang="fr" role="menuitemradio" aria-checked="false">
+                        <span class="locale-flag" aria-hidden="true">🇫🇷</span><span>Français</span>
+                    </button>
+                    <button class="locale-option" type="button" data-lang="ar" role="menuitemradio" aria-checked="false">
+                        <span class="locale-flag" aria-hidden="true">🇲🇦</span><span>العربية</span>
+                    </button>
+                </div>
+            </div>
+            <a class="button button-green" href="#experiences"><span data-i18n="cta_find_escape">Find my escape</span> {!! $icon('arrow-up') !!}</a>
             @if ($site['loginUrl'])
             <a class="icon-button nav-profile" href="{{ $site['loginUrl'] }}" aria-label="Owner login" title="Owner login">
                 {!! $icon('user') !!}<span class="profile-tooltip" aria-hidden="true">Owner login</span>
             </a>
             @else
             <button class="icon-button nav-profile" type="button" data-account-preview aria-label="Owner login, coming soon" title="Owner login · coming soon">
-                {!! $icon('user') !!}<span class="profile-tooltip" aria-hidden="true">Owner login · coming soon</span>
+                {!! $icon('user') !!}<span class="profile-tooltip" aria-hidden="true" data-i18n="owner_login">Owner login · coming soon</span>
             </button>
             @endif
             <button class="icon-button menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation" aria-controls="mobile-menu" aria-expanded="false">{!! $icon('menu') !!}</button>
         </div>
     </div>
     <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" hidden>
-        <a href="#experiences">Explore experiences {!! $icon('arrow-up') !!}</a>
-        <a href="#about">Our story {!! $icon('arrow-up') !!}</a>
-        <a href="#moments">The moments {!! $icon('arrow-up') !!}</a>
-        <a href="#stories">Guest stories {!! $icon('arrow-up') !!}</a>
-        <a href="#faq">Before you go {!! $icon('arrow-up') !!}</a>
-        <a href="#contact">Get in touch {!! $icon('arrow-up') !!}</a>
+        <a href="#experiences"><span data-i18n="mobile_explore">Explore experiences</span> {!! $icon('arrow-up') !!}</a>
+        <a href="#about"><span data-i18n="mobile_story">Our story</span> {!! $icon('arrow-up') !!}</a>
+        <a href="#moments"><span data-i18n="mobile_moments">The moments</span> {!! $icon('arrow-up') !!}</a>
+        <a href="#stories"><span data-i18n="mobile_stories">Guest stories</span> {!! $icon('arrow-up') !!}</a>
+        <a href="#faq"><span data-i18n="mobile_faq">Before you go</span> {!! $icon('arrow-up') !!}</a>
+        <a href="#contact"><span data-i18n="mobile_contact">Get in touch</span> {!! $icon('arrow-up') !!}</a>
     </nav>
 </header>
 <main id="main">
@@ -1559,23 +1605,23 @@ Do not remove the preview warnings merely to make an unconnected form look live.
         <img class="hero-photo" src="{{ $img($photos['hero'], 1920) }}" srcset="{{ $img($photos['hero'], 800) }} 800w, {{ $img($photos['hero'], 1280) }} 1280w, {{ $img($photos['hero'], 1920) }} 1920w" sizes="100vw" width="1920" height="1280" alt="A glowing sunset over the rocky Agafay landscape" fetchpriority="high" decoding="async">
         <div class="container hero-inner">
             <div class="hero-copy">
-                <div class="eyebrow hero-animate">Marrakech, Morocco · Beyond the ordinary</div>
-                <h1 id="hero-title"><span class="hero-line hero-animate">A different</span><span class="hero-line hero-animate">kind of day.</span><span class="hero-line hero-animate"><em>A lasting feeling.</em></span></h1>
-                <p class="hero-animate">Camel trails. Golden skies. Mint tea, poured slowly. Discover the Agafay moments you will take home with you.</p>
+                <div class="eyebrow hero-animate" data-i18n="hero_badge">Marrakech, Morocco · Beyond the ordinary</div>
+                <h1 id="hero-title"><span class="hero-line hero-animate" data-i18n="hero_title_a">A different</span><span class="hero-line hero-animate" data-i18n="hero_title_b">kind of day.</span><span class="hero-line hero-animate" data-i18n="hero_title_c"><em>A lasting feeling.</em></span></h1>
+                <p class="hero-animate" data-i18n="hero_text">Camel trails. Golden skies. Mint tea, poured slowly. Discover the Agafay moments you will take home with you.</p>
                 <div class="hero-actions hero-animate">
-                    <a class="button" href="#experiences">Explore the experiences {!! $icon('arrow-up') !!}</a>
-                    <a class="text-link" href="#about">A little about us {!! $icon('arrow') !!}</a>
+                    <a class="button" href="#experiences"><span data-i18n="hero_cta">Explore the experiences</span> {!! $icon('arrow-up') !!}</a>
+                    <a class="text-link" href="#about"><span data-i18n="hero_about_link">A little about us</span> {!! $icon('arrow') !!}</a>
                 </div>
             </div>
             <div class="hero-side">
-                <div class="hero-seal" aria-hidden="true"><span>Less ordinary</span>{!! $icon('sun') !!}<span>More Morocco</span></div>
+                <div class="hero-seal" aria-hidden="true"><span data-i18n="hero_seal_a">Less ordinary</span>{!! $icon('sun') !!}<span data-i18n="hero_seal_b">More Morocco</span></div>
                 <button class="hero-postcard" type="button" data-details="camel-sunset" aria-label="Explore the sunset camel ride and mint tea experience">
                     <img src="{{ $img($photos['camel'], 300) }}" width="90" height="105" alt="" decoding="async">
-                    <span class="postcard-copy"><small>The golden-hour edit</small><strong>Chase a softer<br>kind of sunset.</strong><span class="postcard-link">Discover this escape {!! $icon('arrow-up') !!}</span></span>
+                    <span class="postcard-copy"><small data-i18n="hero_postcard_small">The golden-hour edit</small><strong data-i18n="hero_postcard_title">Chase a softer<br>kind of sunset.</strong><span class="postcard-link"><span data-i18n="hero_postcard_link">Discover this escape</span> {!! $icon('arrow-up') !!}</span></span>
                 </button>
             </div>
         </div>
-        <div class="hero-caption">{!! $icon('pin') !!} A little beyond Marrakech. A world away.</div>
+        <div class="hero-caption">{!! $icon('pin') !!} <span data-i18n="hero_caption">A little beyond Marrakech. A world away.</span></div>
     </section>
     <div class="container finder-wrap">
         <form class="finder" id="finder-form" aria-label="Find your preferred experience">
@@ -1607,15 +1653,15 @@ Do not remove the preview warnings merely to make an unconnected form look live.
                 <span class="about-caption">A little closer<br>to the real thing.</span>
             </div>
             <div class="about-copy reveal">
-                <div class="eyebrow">Our story, your next chapter</div>
-                <h2 id="about-title">Not just a place.<br><em>A way to feel.</em></h2>
-                <p class="section-intro">We believe the best travel days are not always the busiest ones. Sometimes they are a quiet trail, an open horizon, and a warm welcome over a glass of mint tea.</p>
-                <p class="section-intro">That is the idea behind {{ $site['name'] }}: a collection of experiences for slowing down, trying something new, and making a little more of your time in Morocco.</p>
+                <div class="eyebrow" data-i18n="about_badge">Our story, your next chapter</div>
+                <h2 id="about-title"><span data-i18n="about_title_a">Not just a place.</span><br><em data-i18n="about_title_b">A way to feel.</em></h2>
+                <p class="section-intro" data-i18n="about_copy_1">We believe the best travel days are not always the busiest ones. Sometimes they are a quiet trail, an open horizon, and a warm welcome over a glass of mint tea.</p>
+                <p class="section-intro" data-i18n="about_copy_2">That is the idea behind {{ $site['name'] }}: a collection of experiences for slowing down, trying something new, and making a little more of your time in Morocco.</p>
                 <div class="about-points">
-                    <div class="about-point">{!! $icon('check') !!}<span>Find your own<br>kind of adventure</span></div>
-                    <div class="about-point">{!! $icon('check') !!}<span>Make space for<br>something memorable</span></div>
+                    <div class="about-point">{!! $icon('check') !!}<span data-i18n="about_point_1">Find your own<br>kind of adventure</span></div>
+                    <div class="about-point">{!! $icon('check') !!}<span data-i18n="about_point_2">Make space for<br>something memorable</span></div>
                 </div>
-                <div class="about-signature"><span>See you beyond the city.</span><a class="text-link" href="#experiences">Find your moment {!! $icon('arrow-up') !!}</a></div>
+                <div class="about-signature"><span data-i18n="about_signature">See you beyond the city.</span><a class="text-link" href="#experiences"><span data-i18n="about_link">Find your moment</span> {!! $icon('arrow-up') !!}</a></div>
             </div>
         </div>
     </section>
@@ -1631,8 +1677,8 @@ Do not remove the preview warnings merely to make an unconnected form look live.
         </div>
         <div class="container">
             <div class="section-heading reveal">
-                <div><div class="eyebrow">The experience collection</div><h2 id="experiences-title">Choose a day.<br><em>Make it a story.</em></h2></div>
-                <p>For the thrill-seekers, the sunset-chasers, and the “just one more cup of tea” people. There is an escape for you.</p>
+                <div><div class="eyebrow" data-i18n="experiences_badge">The experience collection</div><h2 id="experiences-title"><span data-i18n="experiences_title_a">Choose a day.</span><br><em data-i18n="experiences_title_b">Make it a story.</em></h2></div>
+                <p data-i18n="experiences_intro">For the thrill-seekers, the sunset-chasers, and the “just one more cup of tea” people. There is an escape for you.</p>
             </div>
             <div class="collection-toolbar">
                 <div class="filter-row">
@@ -1726,7 +1772,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             <svg class="decor-mark decor-mark--sparkles decor-slot-e decor-secondary" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><use href="#decor-sparkles"></use></svg>
         </div>
         <div class="container">
-            <div class="gallery-header reveal"><div><div class="eyebrow">A little visual daydream</div><h2 id="moments-title">Wish you were <em>here.</em></h2><p>Wide horizons, warm welcomes, and the moments in between.</p></div><a class="text-link" href="#experiences">Find your moment {!! $icon('arrow-up') !!}</a></div>
+            <div class="gallery-header reveal"><div><div class="eyebrow" data-i18n="gallery_badge">A little visual daydream</div><h2 id="moments-title"><span data-i18n="gallery_title_a">Wish you were</span> <em data-i18n="gallery_title_b">here.</em></h2><p data-i18n="gallery_text">Wide horizons, warm welcomes, and the moments in between.</p></div><a class="text-link" href="#experiences"><span data-i18n="gallery_link">Find your moment</span> {!! $icon('arrow-up') !!}</a></div>
             <div class="gallery-grid">
                 <button class="gallery-item" type="button" data-gallery="{{ $photos['landscape'] }}" data-caption="Room to wander" data-credit="https://www.pexels.com/photo/35910045/" aria-label="View full photograph: Room to wander"><img src="{{ $img($photos['landscape'], 700) }}" width="600" height="750" loading="lazy" decoding="async" alt="A small figure walking through the vast Agafay hills"><span>Room to wander {!! $icon('arrow-up') !!}</span></button>
                 <button class="gallery-item" type="button" data-gallery="{{ $photos['tea'] }}" data-caption="One more cup" data-credit="https://www.pexels.com/photo/36579351/" aria-label="View full photograph: One more cup"><img src="{{ $img($photos['tea'], 650) }}" width="600" height="750" loading="lazy" decoding="async" alt="Tea being poured from a silver Moroccan teapot"><span>One more cup {!! $icon('arrow-up') !!}</span></button>
@@ -1744,9 +1790,9 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             <svg class="decor-mark decor-mark--sparkles decor-slot-e decor-secondary" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><use href="#decor-sparkles"></use></svg>
         </div>
         <div class="container">
-            <div class="stories-header reveal"><div class="eyebrow">The stories we make room for</div><h2 id="stories-title">Good days.<br><em>Even better memories.</em></h2>
+            <div class="stories-header reveal"><div class="eyebrow" data-i18n="stories_badge">The stories we make room for</div><h2 id="stories-title"><span data-i18n="stories_title_a">Good days.</span><br><em data-i18n="stories_title_b">Even better memories.</em></h2>
                 @if ($site['demoContent'])
-                <span class="sample-label">{!! $icon('info') !!} Design preview · illustrative guest stories</span>
+                <span class="sample-label">{!! $icon('info') !!} <span data-i18n="stories_preview">Design preview · illustrative guest stories</span></span>
                 @endif
             </div>
             <div class="review-grid">
@@ -1768,7 +1814,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             <svg class="decor-mark decor-mark--sparkles decor-slot-e decor-secondary" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><use href="#decor-sparkles"></use></svg>
         </div>
         <div class="container faq-grid">
-            <div class="faq-intro reveal"><div class="eyebrow">Before you head out</div><h2 id="faq-title">A few things<br><em>worth knowing.</em></h2><p>A little clarity makes for a much more relaxed day. Here are the questions that help you get started.</p><a class="text-link" href="#contact">Have another question? {!! $icon('arrow-up') !!}</a></div>
+            <div class="faq-intro reveal"><div class="eyebrow" data-i18n="faq_badge">Before you head out</div><h2 id="faq-title"><span data-i18n="faq_title_a">A few things</span><br><em data-i18n="faq_title_b">worth knowing.</em></h2><p data-i18n="faq_intro">A little clarity makes for a much more relaxed day. Here are the questions that help you get started.</p><a class="text-link" href="#contact"><span data-i18n="faq_link">Have another question?</span> {!! $icon('arrow-up') !!}</a></div>
             <div class="faq-list">
                 @foreach ($faqs as $faq)
                 <details><summary>{{ $faq[0] }} {!! $icon('plus') !!}</summary><p>{{ $faq[1] }}</p></details>
@@ -1785,9 +1831,9 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             <svg class="decor-mark decor-mark--sparkles decor-slot-e decor-secondary" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><use href="#decor-sparkles"></use></svg>
         </div>
         <div class="container contact-grid">
-            <div class="contact-copy reveal"><div class="eyebrow">Good days start with a hello</div><h2 id="contact-title">Tell us what<br>you’re <em>dreaming of.</em></h2><p>Not sure which experience to choose? Planning something special? Share a little about your trip, and let’s give your idea a place to begin.</p>
-                <div class="contact-detail">{!! $icon('pin') !!}<div><strong>Marrakech & Agafay, Morocco</strong><small>The setting for your next travel story</small></div></div>
-                <div class="contact-detail">{!! $icon('chat') !!}<div><strong>A little help with the details</strong><small>Your dates, your group, your kind of day</small></div></div>
+            <div class="contact-copy reveal"><div class="eyebrow" data-i18n="contact_badge">Good days start with a hello</div><h2 id="contact-title"><span data-i18n="contact_title_a">Tell us what</span><br><span data-i18n="contact_title_b">you’re</span> <em data-i18n="contact_title_c">dreaming of.</em></h2><p data-i18n="contact_intro">Not sure which experience to choose? Planning something special? Share a little about your trip, and let’s give your idea a place to begin.</p>
+                <div class="contact-detail">{!! $icon('pin') !!}<div><strong data-i18n="contact_place">Marrakech & Agafay, Morocco</strong><small data-i18n="contact_place_sub">The setting for your next travel story</small></div></div>
+                <div class="contact-detail">{!! $icon('chat') !!}<div><strong data-i18n="contact_help_title">A little help with the details</strong><small data-i18n="contact_help_sub">Your dates, your group, your kind of day</small></div></div>
                 @if ($site['email'])
                 <div class="contact-detail">{!! $icon('mail') !!}<a href="mailto:{{ $site['email'] }}">{{ $site['email'] }}</a></div>
                 @endif
@@ -1951,6 +1997,240 @@ Do not remove the preview warnings merely to make an unconnected form look live.
     let previousBodyStyles = null;
     const requestRecords = new WeakMap();
     const busyForms = new Set();
+    const translations = {
+        en: {
+            nav_experiences: 'Experiences',
+            nav_story: 'Our story',
+            nav_moments: 'The moments',
+            nav_stories: 'Guest stories',
+            nav_contact: 'Get in touch',
+            cta_find_escape: 'Find my escape',
+            owner_login: 'Owner login · coming soon',
+            mobile_explore: 'Explore experiences',
+            mobile_story: 'Our story',
+            mobile_moments: 'The moments',
+            mobile_stories: 'Guest stories',
+            mobile_faq: 'Before you go',
+            mobile_contact: 'Get in touch',
+            hero_badge: 'Marrakech, Morocco · Beyond the ordinary',
+            hero_title_a: 'A different',
+            hero_title_b: 'kind of day.',
+            hero_title_c: '<em>A lasting feeling.</em>',
+            hero_text: 'Camel trails. Golden skies. Mint tea, poured slowly. Discover the Agafay moments you will take home with you.',
+            hero_cta: 'Explore the experiences',
+            hero_about_link: 'A little about us',
+            hero_seal_a: 'Less ordinary',
+            hero_seal_b: 'More Morocco',
+            hero_postcard_small: 'The golden-hour edit',
+            hero_postcard_title: 'Chase a softer<br>kind of sunset.',
+            hero_postcard_link: 'Discover this escape',
+            hero_caption: 'A little beyond Marrakech. A world away.',
+            about_badge: 'Our story, your next chapter',
+            about_title_a: 'Not just a place.',
+            about_title_b: 'A way to feel.',
+            about_copy_1: 'We believe the best travel days are not always the busiest ones. Sometimes they are a quiet trail, an open horizon, and a warm welcome over a glass of mint tea.',
+            about_copy_2: 'That is the idea behind AGAFAY: a collection of experiences for slowing down, trying something new, and making a little more of your time in Morocco.',
+            about_point_1: 'Find your own<br>kind of adventure',
+            about_point_2: 'Make space for<br>something memorable',
+            about_signature: 'See you beyond the city.',
+            about_link: 'Find your moment',
+            experiences_badge: 'The experience collection',
+            experiences_title_a: 'Choose a day.',
+            experiences_title_b: 'Make it a story.',
+            experiences_intro: 'For the thrill-seekers, the sunset-chasers, and the “just one more cup of tea” people. There is an escape for you.',
+            gallery_badge: 'A little visual daydream',
+            gallery_title_a: 'Wish you were',
+            gallery_title_b: 'here.',
+            gallery_text: 'Wide horizons, warm welcomes, and the moments in between.',
+            gallery_link: 'Find your moment',
+            stories_badge: 'The stories we make room for',
+            stories_title_a: 'Good days.',
+            stories_title_b: 'Even better memories.',
+            stories_preview: 'Design preview · illustrative guest stories',
+            faq_badge: 'Before you head out',
+            faq_title_a: 'A few things',
+            faq_title_b: 'worth knowing.',
+            faq_intro: 'A little clarity makes for a much more relaxed day. Here are the questions that help you get started.',
+            faq_link: 'Have another question?',
+            contact_badge: 'Good days start with a hello',
+            contact_title_a: 'Tell us what',
+            contact_title_b: 'you’re',
+            contact_title_c: 'dreaming of.',
+            contact_intro: 'Not sure which experience to choose? Planning something special? Share a little about your trip, and let’s give your idea a place to begin.',
+            contact_place: 'Marrakech & Agafay, Morocco',
+            contact_place_sub: 'The setting for your next travel story',
+            contact_help_title: 'A little help with the details',
+            contact_help_sub: 'Your dates, your group, your kind of day'
+        },
+        fr: {
+            nav_experiences: 'Expériences',
+            nav_story: 'Notre histoire',
+            nav_moments: 'Les instants',
+            nav_stories: 'Témoignages',
+            nav_contact: 'Contact',
+            cta_find_escape: 'Trouver mon escape',
+            owner_login: 'Connexion propriétaire · bientôt',
+            mobile_explore: 'Découvrir les expériences',
+            mobile_story: 'Notre histoire',
+            mobile_moments: 'Les instants',
+            mobile_stories: 'Témoignages',
+            mobile_faq: 'Avant de partir',
+            mobile_contact: 'Contact',
+            hero_badge: 'Marrakech, Maroc · Au-delà de l’ordinaire',
+            hero_title_a: 'Un autre',
+            hero_title_b: 'genre de journée.',
+            hero_title_c: '<em>Un souvenir durable.</em>',
+            hero_text: 'Chemins de chameau. Cieux dorés. Thé à la menthe, servi doucement. Découvrez les moments Agafay que vous emporterez avec vous.',
+            hero_cta: 'Découvrir les expériences',
+            hero_about_link: 'Un peu à propos de nous',
+            hero_seal_a: 'Moins ordinaire',
+            hero_seal_b: 'Plus du Maroc',
+            hero_postcard_small: 'L’edit du moment doré',
+            hero_postcard_title: 'Suivez un coucher de soleil<br>plus doux.',
+            hero_postcard_link: 'Découvrir cette escapade',
+            hero_caption: 'Un peu au-delà de Marrakech. Un autre monde.',
+            about_badge: 'Notre histoire, votre prochaine étape',
+            about_title_a: 'Pas seulement un lieu.',
+            about_title_b: 'Une façon de se sentir.',
+            about_copy_1: 'Nous croyons que les meilleures journées de voyage ne sont pas toujours les plus chargées. Parfois, ce sont un sentier paisible, un horizon ouvert et un accueil chaleureux autour d’un thé à la menthe.',
+            about_copy_2: 'C’est l’idée derrière AGAFAY : une collection d’expériences pour ralentir, essayer quelque chose de nouveau et profiter un peu plus de votre temps au Maroc.',
+            about_point_1: 'Trouvez votre propre<br>genre d’aventure',
+            about_point_2: 'Faites de la place<br>à quelque chose de mémorable',
+            about_signature: 'À bientôt au-delà de la ville.',
+            about_link: 'Trouvez votre moment',
+            experiences_badge: 'La collection d’expériences',
+            experiences_title_a: 'Choisissez une journée.',
+            experiences_title_b: 'Créez une histoire.',
+            experiences_intro: 'Pour les aventuriers, les amateurs de couchers de soleil et ceux qui disent “encore une tasse de thé”. Il y a une escapade pour vous.',
+            gallery_badge: 'Un petit rêve visuel',
+            gallery_title_a: 'Vous aimeriez',
+            gallery_title_b: 'être ici.',
+            gallery_text: 'De grands horizons, des accueils chaleureux et les instants entre les deux.',
+            gallery_link: 'Trouvez votre moment',
+            stories_badge: 'Les histoires que nous laissons place',
+            stories_title_a: 'De belles journées.',
+            stories_title_b: 'De meilleurs souvenirs.',
+            stories_preview: 'Aperçu · récits d’invités illustratifs',
+            faq_badge: 'Avant de partir',
+            faq_title_a: 'Quelques points',
+            faq_title_b: 'à savoir.',
+            faq_intro: 'Un peu de clarté rend la journée plus agréable. Voici les questions qui vous aideront à commencer.',
+            faq_link: 'Une autre question ?',
+            contact_badge: 'Les bonnes journées commencent par un bonjour',
+            contact_title_a: 'Dites-nous ce',
+            contact_title_b: 'que vous',
+            contact_title_c: 'rêvez.',
+            contact_intro: 'Vous ne savez pas quelle expérience choisir ? Vous planifiez quelque chose de spécial ? Partagez un peu sur votre voyage et donnons un point de départ à votre idée.',
+            contact_place: 'Marrakech & Agafay, Maroc',
+            contact_place_sub: 'Le cadre de votre prochaine histoire de voyage',
+            contact_help_title: 'Un peu d’aide pour les détails',
+            contact_help_sub: 'Vos dates, votre groupe, votre type de journée'
+        },
+        ar: {
+            nav_experiences: 'التجارب',
+            nav_story: 'قصتنا',
+            nav_moments: 'اللحظات',
+            nav_stories: 'قصص الضيوف',
+            nav_contact: 'تواصل معنا',
+            cta_find_escape: 'ابحث عن فرحتي',
+            owner_login: 'دخول المالك · قريبا',
+            mobile_explore: 'استكشف التجارب',
+            mobile_story: 'قصتنا',
+            mobile_moments: 'اللحظات',
+            mobile_stories: 'قصص الضيوف',
+            mobile_faq: 'قبل أن تذهب',
+            mobile_contact: 'تواصل معنا',
+            hero_badge: 'مراكش، المغرب · أبعد من المألوف',
+            hero_title_a: 'يوم مختلف',
+            hero_title_b: 'بإحساس مختلف.',
+            hero_title_c: '<em>ذكريات تدوم.</em>',
+            hero_text: 'طرق الجمال. أجواء ذهبية. شاي النعناع، يقدم ببطء. اكتشف لحظات أغافاي التي ستأخذها معك.',
+            hero_cta: 'استكشف التجارب',
+            hero_about_link: 'قليل عنّا',
+            hero_seal_a: 'أقل عادية',
+            hero_seal_b: 'أكثر من المغرب',
+            hero_postcard_small: 'تعديل ساعة الذهب',
+            hero_postcard_title: 'ت追ى غروبًا<br>أهدأ.',
+            hero_postcard_link: 'اكتشف هذه المغامرة',
+            hero_caption: 'قليلًا خارج مراكش. عالم آخر.',
+            about_badge: 'قصتنا، الفصل القادم',
+            about_title_a: 'ليس مجرد مكان.',
+            about_title_b: 'طريقة للعيش.',
+            about_copy_1: 'نؤمن أن أفضل أيام السفر ليست دائمًا الأكثر ازدحامًا. أحيانًا تكون مسارًا هادئًا، وأفقًا مفتوحًا، واستقبالًا دافئًا فوق كوب شاي النعناع.',
+            about_copy_2: 'هذه هي الفكرة وراء AGAFAY: مجموعة من التجارب للتباطؤ وتجربة أشياء جديدة وإعطاء وقتك في المغرب مزيدًا من المعنى.',
+            about_point_1: 'اكتشف نوعك الخاص<br>من المغامرة',
+            about_point_2: 'خصص مساحة<br>لأشياء لا تنسى',
+            about_signature: 'حتى اللقاء خارج المدينة.',
+            about_link: 'اكتشف لحظتك',
+            experiences_badge: 'مجموعة التجارب',
+            experiences_title_a: 'اختر يومك.',
+            experiences_title_b: 'اصنع قصة.',
+            experiences_intro: 'للناس الذين يحبون المغامرة، وغروب الشمس، وأرواح “كوب شاي آخر”. يوجد لك خيار مناسب.',
+            gallery_badge: 'حلم بصري صغير',
+            gallery_title_a: 'تتمنى أن تكون',
+            gallery_title_b: 'هنا.',
+            gallery_text: 'أفق واسع، استقبال دافئ، واللحظات بينهما.',
+            gallery_link: 'اكتشف لحظتك',
+            stories_badge: 'القصص التي نترك لها مساحة',
+            stories_title_a: 'أيام جميلة.',
+            stories_title_b: 'ذكريات أفضل.',
+            stories_preview: 'معاينة · قصص ضيوف توضيحية',
+            faq_badge: 'قبل أن تذهب',
+            faq_title_a: 'بضع أمور',
+            faq_title_b: 'مهمة أن تعرفها.',
+            faq_intro: 'القليل من الوضوح يجعل اليوم أكثر راحة. إليك الأسئلة التي تساعدك على البدء.',
+            faq_link: 'هل لديك سؤال آخر؟',
+            contact_badge: 'تبدأ الأيام الجيدة بتحية',
+            contact_title_a: 'قل لنا ما',
+            contact_title_b: 'تتمنى',
+            contact_title_c: 'أن تجربه.',
+            contact_intro: 'هل لا تعرف أي تجربة تختار؟ أم تخطط لشيء خاص؟ شاركنا قليلاً عن رحلتك وسنضع فكرة لك نقطة بداية.',
+            contact_place: 'مراكش وأغافاي، المغرب',
+            contact_place_sub: 'سياق قصتك التالية في السفر',
+            contact_help_title: 'قليل من المساعدة في التفاصيل',
+            contact_help_sub: 'تواريخك، مجموعتك، وطبيعة يومك'
+        }
+    };
+    const localeState = { current: localStorage.getItem('agafay-locale') || 'en' };
+    function setLocaleMenu(open) {
+        const menu = $('#locale-menu');
+        const toggle = $('#locale-toggle');
+        if (!menu || !toggle) return;
+        menu.hidden = !open;
+        toggle.setAttribute('aria-expanded', String(open));
+    }
+    function applyTranslations(lang = localeState.current) {
+        const dict = translations[lang] || translations.en;
+        localeState.current = lang;
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const value = dict[el.dataset.i18n];
+            if (value !== undefined) el.innerHTML = value;
+        });
+        document.querySelectorAll('.locale-option').forEach(button => {
+            const active = button.dataset.lang === lang;
+            button.classList.toggle('is-active', active);
+            button.setAttribute('aria-checked', String(active));
+        });
+        try { localStorage.setItem('agafay-locale', lang); } catch (_) {}
+        setLocaleMenu(false);
+    }
+    $('#locale-toggle')?.addEventListener('click', () => {
+        const menu = $('#locale-menu');
+        if (!menu) return;
+        setLocaleMenu(menu.hidden);
+    });
+    document.addEventListener('click', (event) => {
+        const clickedLocale = event.target.closest('#locale-menu') || event.target.closest('#locale-toggle');
+        if (!clickedLocale) setLocaleMenu(false);
+    });
+    document.querySelectorAll('.locale-option').forEach(button => {
+        button.addEventListener('click', () => {
+            applyTranslations(button.dataset.lang);
+        });
+    });
+    applyTranslations(localeState.current);
 
     function icon(name) {
         const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
