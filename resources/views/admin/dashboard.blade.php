@@ -1,8 +1,8 @@
-					<x-layouts.admin :title="'Dashboard | ToursHub'">
+					<x-layouts.admin :title="'Dashboard | amanartourism'">
 						<div class="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><p class="mb-2 text-xs font-bold uppercase tracking-[.22em] text-[#a84e31]">Owner overview</p><h1 class="serif text-4xl sm:text-5xl">Tableau de Bord Admin</h1><p class="mt-3 max-w-xl text-sm text-[#6d776c]">Keep an eye on requests, confirmed days, and the experiences guests love most.</p></div><a href="{{ route('admin.packages.create') }}" class="rounded-xl bg-[#2e4033] px-5 py-3 text-center text-sm font-semibold text-white hover:bg-[#233329]">+ Add package</a></div>
-						<div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
+						<div class="grid grid-cols-2 gap-3 sm:gap-4 xl:grid-cols-5">
 							@foreach ([['Total orders', $totalOrders, '#e8f1f6'], ['Pending requests', $pendingOrders, '#fff4d8'], ['Confirmed bookings', $confirmedBookings, '#e0f2e9'], ['Completed tours', $completedTours, '#e4efdc'], ['Total revenue', 'MAD '.number_format($totalRevenue, 0), '#f8e5da']] as $stat)
-								<div class="shadow-soft rounded-2xl border border-[#ebe8df] bg-white p-5"><span class="mb-5 grid h-10 w-10 place-items-center rounded-xl text-lg" style="background:{{ $stat[2] }}">✦</span><p class="text-xs text-[#778078]">{{ $stat[0] }}</p><p class="mt-1 text-2xl font-bold">{{ is_numeric($stat[1]) ? number_format($stat[1]) : $stat[1] }}</p></div>
+								<div class="shadow-soft min-w-0 rounded-2xl border border-[#ebe8df] bg-white p-4 sm:p-5"><span class="mb-5 grid h-10 w-10 place-items-center rounded-xl text-lg" style="background:{{ $stat[2] }}">✦</span><p class="text-xs text-[#778078]">{{ $stat[0] }}</p><p class="mt-1 break-words text-lg font-bold leading-tight sm:text-2xl">{{ is_numeric($stat[1]) ? number_format($stat[1]) : $stat[1] }}</p></div>
 							@endforeach
 						</div>
 						<div class="mt-6 grid gap-6 xl:grid-cols-[1.5fr_1fr]"><section class="shadow-soft rounded-2xl border border-[#ebe8df] bg-white p-5 sm:p-6"><div class="mb-5 flex items-center justify-between"><div><h2 class="text-lg font-bold">Monthly revenue</h2><p class="text-xs text-[#778078]">Confirmed and completed orders</p></div><span class="rounded-lg bg-[#f3eee5] px-3 py-2 text-xs text-[#657064]">Live data</span></div><div class="h-72"><canvas id="revenue-chart"></canvas></div></section><section class="shadow-soft rounded-2xl border border-[#ebe8df] bg-white p-5 sm:p-6"><div class="mb-5"><h2 class="text-lg font-bold">Orders by month</h2><p class="text-xs text-[#778078]">Booking requests received</p></div><div class="h-72"><canvas id="orders-chart"></canvas></div></section></div>
@@ -13,4 +13,3 @@
 							new Chart(document.getElementById('orders-chart'), {type:'line', data:{labels:@json($orderLabels), datasets:[{label:'Orders', data:@json($orderCounts), borderColor:'#2e4033', backgroundColor:'#e0eee4', fill:true, tension:.35}]}, options:{responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true, grid:{color:'#eeeae1'}}, x:{grid:{display:false}}}}});
 						</script>
 					</x-layouts.admin>
-                     

@@ -16,6 +16,14 @@
         .nav-active { background:#eaf0e6; color:var(--green); }
         .status { display:inline-flex; align-items:center; border-radius:999px; padding:.3rem .65rem; font-size:.72rem; font-weight:600; text-transform:capitalize; }
         .status-pending { background:#fff0c9; color:#7b5c13; }.status-confirmed { background:#d8eee5; color:#23664d; }.status-completed { background:#dcebd5; color:#3d6a35; }.status-cancelled { background:#f8dfd9; color:#99412f; }
+        @media (max-width: 767px) {
+            main .overflow-x-auto { overflow-x: hidden; }
+            main table[class*="min-w-[620px]"] { width: 100%; min-width: 0 !important; table-layout: fixed; }
+            main table[class*="min-w-[620px]"] th,
+            main table[class*="min-w-[620px]"] td { padding-left: .25rem; padding-right: .25rem; overflow-wrap: anywhere; }
+            main table[class*="min-w-[620px]"] th:nth-child(3),
+            main table[class*="min-w-[620px]"] td:nth-child(3) { display: none; }
+        }
     </style>
 </head>
 <body class="min-h-screen">
