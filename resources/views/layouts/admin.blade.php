@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $title ?? 'ToursHub Admin' }}</title>
+    <title>{{ $title ?? 'amanartourism Admin' }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +23,7 @@
     <aside id="admin-sidebar" class="fixed inset-y-0 left-0 z-40 flex w-72 -translate-x-full flex-col border-r border-white/60 bg-[#eaf2ed] p-6 transition-transform lg:static lg:translate-x-0">
         <a href="{{ route('admin.dashboard') }}" class="mb-12 flex items-center gap-3">
             <span class="grid h-11 w-11 place-items-center rounded-full bg-[#d7e7dc] text-2xl">☼</span>
-            <span><strong class="serif block text-xl">ToursHub</strong><small class="text-xs uppercase tracking-[.2em] text-[#718174]">Morocco owner</small></span>
+            <span><strong class="serif block text-xl">amanartourism</strong><small class="text-xs uppercase tracking-[.2em] text-[#718174]">Morocco owner</small></span>
         </a>
         <nav class="space-y-2 text-sm font-semibold">
             <a href="{{ route('admin.dashboard') }}" class="{{ request()->routeIs('admin.dashboard') ? 'nav-active' : 'text-[#637064] hover:bg-white/60' }} flex items-center gap-3 rounded-xl px-4 py-3">⌂ <span>Dashboard</span></a>
@@ -37,7 +37,7 @@
     <div class="min-w-0 flex-1">
         <header class="flex items-center justify-between border-b border-[#e8e5dc] bg-white/70 px-5 py-4 backdrop-blur lg:px-10">
             <button id="admin-menu" class="rounded-lg border border-[#dddcd3] px-3 py-2 lg:hidden" aria-label="Open menu">☰</button>
-            <div class="hidden text-sm text-[#748073] sm:block">Marrakech & Agafay · Owner workspace</div>
+            <div class="hidden text-sm text-[#748073] sm:block">Marrakech & amanartourism · Owner workspace</div>
             <div class="flex items-center gap-3"><span class="grid h-9 w-9 place-items-center rounded-full bg-[#e4eadf] text-sm">{{ strtoupper(substr(auth()->user()->name, 0, 1)) }}</span><span class="text-sm font-semibold">{{ auth()->user()->name }}</span></div>
         </header>
         <main class="px-5 py-7 lg:px-10 lg:py-10">

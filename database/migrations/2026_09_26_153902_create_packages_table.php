@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->decimal('price', 10, 2);
             $table->string('duration');
-            $table->string('location')->default('Agafay, Morocco');
+            $table->string('location')->default('amanartourism, Morocco');
             $table->string('category')->default('adventure');
             $table->unsignedInteger('max_guests')->default(12);
             $table->boolean('status')->default(true);

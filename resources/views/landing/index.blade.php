@@ -1,5 +1,5 @@
 {{--
-AGAFAY / DESERT STORIES — self-contained Laravel landing page
+amanartourism / DESERT STORIES — self-contained Laravel landing page
 Place at: resources/views/landing.blade.php
 Route: Route::view('/', 'landing')->name('home');
 
@@ -45,9 +45,9 @@ Do not remove the preview warnings merely to make an unconnected form look live.
 --}}
 @php
     $site = array_replace([
-        'name' => 'AGAFAY',
+        'name' => 'amanartourism',
         'tagline' => 'DESERT STORIES',
-        'description' => 'Discover a different kind of day. Explore Agafay camel rides, quad adventures, slow escapes, and Moroccan tea experiences.',
+        'description' => 'Discover a different kind of day. Explore amanartourism camel rides, quad adventures, slow escapes, and Moroccan tea experiences.',
         'email' => null, // Replace with the real public business email.
         'phone' => null, // Replace with the real public business phone, including country code.
         'whatsapp' => null, // Digits only, with country code. Example format: 212XXXXXXXXX.
@@ -89,9 +89,9 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             'pace' => 'Gentle pace',
             'maxGuests' => 12,
             'image' => 'https://images.pexels.com/photos/36579390/pexels-photo-36579390.jpeg',
-            'alt' => 'Saddled camels in the rocky Agafay landscape',
+            'alt' => 'Saddled camels in the rocky amanartourism landscape',
             'teaser' => 'Slow steps, wide-open skies, and a glass of something sweet.',
-            'description' => 'Leave the rush behind for a gentle camel ride across the Agafay landscape. Pause for photographs as the light softens, then settle into camp for a traditional mint tea. A simple little escape with a big sense of place.',
+            'description' => 'Leave the rush behind for a gentle camel ride across the amanartourism landscape. Pause for photographs as the light softens, then settle into camp for a traditional mint tea. A simple little escape with a big sense of place.',
             'includes' => [
                 'Guided camel ride',
                 'Mint tea at camp',
@@ -126,9 +126,9 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             'pace' => 'Active experience',
             'maxGuests' => 8,
             'image' => 'https://images.pexels.com/photos/36579388/pexels-photo-36579388.jpeg',
-            'alt' => 'Visitors with helmets and quad bikes in Agafay',
+            'alt' => 'Visitors with helmets and quad bikes in amanartourism',
             'teaser' => 'Dusty trails, dramatic views, and your next favorite memory.',
-            'description' => 'See another side of Agafay on a guided quad adventure. Start with an introduction to the equipment before following your guide across open tracks. Stop to take in the views and finish with a well-earned tea break.',
+            'description' => 'See another side of amanartourism on a guided quad adventure. Start with an introduction to the equipment before following your guide across open tracks. Stop to take in the views and finish with a well-earned tea break.',
             'includes' => [
                 'Guided quad route',
                 'Safety briefing',
@@ -163,7 +163,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             'pace' => 'Relaxed evening',
             'maxGuests' => 12,
             'image' => 'https://images.pexels.com/photos/25447708/pexels-photo-25447708.jpeg',
-            'alt' => 'Moroccan camp terrace looking over the Agafay hills',
+            'alt' => 'Moroccan camp terrace looking over the amanartourism hills',
             'teaser' => 'A beautiful setting, Moroccan flavors, and a little live music.',
             'description' => 'Trade the city lights for an evening at a desert camp. Arrive with time to enjoy the views, gather around the table for a Moroccan dinner, and settle into the atmosphere of a live music evening.',
             'includes' => [
@@ -190,7 +190,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
         ],
         [
             'id' => 'complete-evening',
-            'title' => 'The complete Agafay evening',
+            'title' => 'The complete amanartourism evening',
             'category' => 'adventure',
             'categoryLabel' => 'Adventure',
             'tag' => 'The signature escape',
@@ -200,7 +200,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             'pace' => 'Adventure + unwind',
             'maxGuests' => 8,
             'image' => 'https://images.pexels.com/photos/24193958/pexels-photo-24193958.jpeg',
-            'alt' => 'Camels resting near an Agafay camp in golden evening light',
+            'alt' => 'Camels resting near an amanartourism camp in golden evening light',
             'teaser' => 'A camel ride, a quad adventure, and dinner. All the good parts.',
             'description' => 'Make a whole afternoon of it. Combine a guided quad ride with a slower camel experience, pause for the sunset, and end the day over dinner at camp. This is the sample signature itinerary for guests who would like a little of everything.',
             'includes' => [
@@ -274,7 +274,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             'pace' => 'Gentle pace',
             'maxGuests' => 10,
             'image' => 'https://images.pexels.com/photos/18160499/pexels-photo-18160499.jpeg',
-            'alt' => 'Breakfast served outdoors overlooking the Agafay landscape',
+            'alt' => 'Breakfast served outdoors overlooking the amanartourism landscape',
             'teaser' => 'Start your day with a quieter sky and a generous breakfast.',
             'description' => 'Wake up for something worth leaving your bed for. Enjoy the early light across the landscape, followed by a relaxed breakfast with tea or coffee. An easygoing way to begin a day away from the city.',
             'includes' => [
@@ -311,7 +311,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             'pace' => 'Overnight escape',
             'maxGuests' => 8,
             'image' => 'https://images.pexels.com/photos/15258810/pexels-photo-15258810.png',
-            'alt' => 'Warmly lit camp interior opening onto the Agafay hills',
+            'alt' => 'Warmly lit camp interior opening onto the amanartourism hills',
             'teaser' => 'Sunset, starlight, and waking up somewhere a little different.',
             'description' => 'Let your desert day turn into an overnight escape. Spend the evening at camp, enjoy dinner, and wake up to breakfast with a view. Your exact tent category and sleeping arrangements will be included in the final quote.',
             'includes' => [
@@ -348,7 +348,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             'pace' => 'Private & relaxed',
             'maxGuests' => 8,
             'image' => 'https://images.pexels.com/photos/36579416/pexels-photo-36579416.jpeg',
-            'alt' => 'Two visitors watching a vivid sunset over Agafay',
+            'alt' => 'Two visitors watching a vivid sunset over amanartourism',
             'teaser' => 'A thoughtfully set table and a sunset to call your own.',
             'description' => 'Mark an occasion or simply make an ordinary day feel special. Request a private picnic-style setup with light Moroccan bites, tea, and time to enjoy the evening together. Tell us what you are celebrating so the final proposal can reflect it.',
             'includes' => [
@@ -385,7 +385,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             'pace' => 'Quiet evening',
             'maxGuests' => 12,
             'image' => 'https://images.pexels.com/photos/15257995/pexels-photo-15257995.png',
-            'alt' => 'Agafay camp and distant mountains in the soft light of dusk',
+            'alt' => 'amanartourism camp and distant mountains in the soft light of dusk',
             'teaser' => 'Put your phone away. There is a whole sky to look at.',
             'description' => 'Enjoy the quieter side of camp after dusk. Settle in with a glass of tea and take time to look up at the night sky. This is an informal evening experience, not a guaranteed astronomy session or telescope tour.',
             'includes' => [
@@ -422,7 +422,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             'pace' => 'Walking experience',
             'maxGuests' => 10,
             'image' => 'https://images.pexels.com/photos/35910043/pexels-photo-35910043.jpeg',
-            'alt' => 'A walker surrounded by the rolling rocky hills of Agafay',
+            'alt' => 'A walker surrounded by the rolling rocky hills of amanartourism',
             'teaser' => 'Explore on foot, take in the silence, and finish with mint tea.',
             'description' => 'Get to know the landscape one step at a time on a guided walk. Follow a route suited to your group, stop for photographs, and end with an introduction to a Moroccan mint tea ritual back at camp.',
             'includes' => [
@@ -459,7 +459,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
         [
             'name' => 'James & Mia',
             'initials' => 'JM',
-            'trip' => 'The complete Agafay evening',
+            'trip' => 'The complete amanartourism evening',
             'quote' => 'A little adventure, a beautiful sunset, and a long dinner together. This is exactly the kind of day we travel for.',
             'color' => 'olive',
         ],
@@ -1602,12 +1602,12 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             <svg class="decor-mark decor-mark--trail decor-slot-b" viewBox="0 0 260 100" aria-hidden="true" focusable="false"><use href="#decor-trail"></use></svg>
             <svg class="decor-mark decor-mark--dunes decor-slot-c decor-secondary" viewBox="0 0 200 90" aria-hidden="true" focusable="false"><use href="#decor-dunes"></use></svg>
         </div>
-        <img class="hero-photo" src="{{ $img($photos['hero'], 1920) }}" srcset="{{ $img($photos['hero'], 800) }} 800w, {{ $img($photos['hero'], 1280) }} 1280w, {{ $img($photos['hero'], 1920) }} 1920w" sizes="100vw" width="1920" height="1280" alt="A glowing sunset over the rocky Agafay landscape" fetchpriority="high" decoding="async">
+        <img class="hero-photo" src="{{ $img($photos['hero'], 1920) }}" srcset="{{ $img($photos['hero'], 800) }} 800w, {{ $img($photos['hero'], 1280) }} 1280w, {{ $img($photos['hero'], 1920) }} 1920w" sizes="100vw" width="1920" height="1280" alt="A glowing sunset over the rocky amanartourism landscape" fetchpriority="high" decoding="async">
         <div class="container hero-inner">
             <div class="hero-copy">
                 <div class="eyebrow hero-animate" data-i18n="hero_badge">Marrakech, Morocco · Beyond the ordinary</div>
                 <h1 id="hero-title"><span class="hero-line hero-animate" data-i18n="hero_title_a">A different</span><span class="hero-line hero-animate" data-i18n="hero_title_b">kind of day.</span><span class="hero-line hero-animate" data-i18n="hero_title_c"><em>A lasting feeling.</em></span></h1>
-                <p class="hero-animate" data-i18n="hero_text">Camel trails. Golden skies. Mint tea, poured slowly. Discover the Agafay moments you will take home with you.</p>
+                <p class="hero-animate" data-i18n="hero_text">Camel trails. Golden skies. Mint tea, poured slowly. Discover the amanartourism moments you will take home with you.</p>
                 <div class="hero-actions hero-animate">
                     <a class="button" href="#experiences"><span data-i18n="hero_cta">Explore the experiences</span> {!! $icon('arrow-up') !!}</a>
                     <a class="text-link" href="#about"><span data-i18n="hero_about_link">A little about us</span> {!! $icon('arrow') !!}</a>
@@ -1647,7 +1647,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
         </div>
         <div class="container about-grid">
             <div class="about-photos reveal">
-                <img class="about-main" src="{{ $img($photos['camp'], 850) }}" width="650" height="850" loading="lazy" decoding="async" alt="An inviting Moroccan terrace overlooking the Agafay hills">
+                <img class="about-main" src="{{ $img($photos['camp'], 850) }}" width="650" height="850" loading="lazy" decoding="async" alt="An inviting Moroccan terrace overlooking the amanartourism hills">
                 <img class="about-secondary" src="{{ $img($photos['tea'], 600) }}" width="420" height="600" loading="lazy" decoding="async" alt="Mint tea being poured at a Moroccan desert camp">
                 <div class="about-stamp" aria-hidden="true">{!! $icon('sunset') !!}</div>
                 <span class="about-caption">A little closer<br>to the real thing.</span>
@@ -1706,7 +1706,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
                         <div class="package-category">{{ $package['categoryLabel'] }}</div>
                         <h3 class="package-title" id="title-{{ $package['id'] }}"><button type="button" data-details="{{ $package['id'] }}">{{ $package['title'] }}</button></h3>
                         <p class="package-teaser">{{ $package['teaser'] }}</p>
-                        <div class="package-meta"><span>{!! $icon('clock') !!} {{ $package['duration'] }}</span><span>{!! $icon('pin') !!} Agafay, Morocco</span></div>
+                        <div class="package-meta"><span>{!! $icon('clock') !!} {{ $package['duration'] }}</span><span>{!! $icon('pin') !!} amanartourism, Morocco</span></div>
                         <div class="package-bottom"><div class="package-price"><small>From</small><strong>{{ $money($package['price']) }}</strong><span>/ guest</span></div><button class="details-button" type="button" data-details="{{ $package['id'] }}" aria-label="Explore {{ $package['title'] }}">Explore {!! $icon('arrow-up') !!}</button></div>
                     </div>
                 </article>
@@ -1735,7 +1735,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             <svg class="decor-mark decor-mark--trail decor-slot-e decor-secondary" viewBox="0 0 260 100" aria-hidden="true" focusable="false"><use href="#decor-trail"></use></svg>
         </div>
         <div class="container signature-panel reveal">
-            <div class="signature-media"><img src="{{ $img($photos['picnic'], 1000) }}" width="900" height="1100" loading="lazy" decoding="async" alt="A couple enjoying the sunset across Agafay"><span class="signature-image-label">The city can wait.</span></div>
+            <div class="signature-media"><img src="{{ $img($photos['picnic'], 1000) }}" width="900" height="1100" loading="lazy" decoding="async" alt="A couple enjoying the sunset across amanartourism"><span class="signature-image-label">The city can wait.</span></div>
             <div class="signature-body">
                 <div class="eyebrow">The signature escape</div>
                 <h2 id="signature-title">A little adventure.<br>A beautiful sunset.<br><em>All in one day.</em></h2>
@@ -1774,9 +1774,9 @@ Do not remove the preview warnings merely to make an unconnected form look live.
         <div class="container">
             <div class="gallery-header reveal"><div><div class="eyebrow" data-i18n="gallery_badge">A little visual daydream</div><h2 id="moments-title"><span data-i18n="gallery_title_a">Wish you were</span> <em data-i18n="gallery_title_b">here.</em></h2><p data-i18n="gallery_text">Wide horizons, warm welcomes, and the moments in between.</p></div><a class="text-link" href="#experiences"><span data-i18n="gallery_link">Find your moment</span> {!! $icon('arrow-up') !!}</a></div>
             <div class="gallery-grid">
-                <button class="gallery-item" type="button" data-gallery="{{ $photos['landscape'] }}" data-caption="Room to wander" data-credit="https://www.pexels.com/photo/35910045/" aria-label="View full photograph: Room to wander"><img src="{{ $img($photos['landscape'], 700) }}" width="600" height="750" loading="lazy" decoding="async" alt="A small figure walking through the vast Agafay hills"><span>Room to wander {!! $icon('arrow-up') !!}</span></button>
+                <button class="gallery-item" type="button" data-gallery="{{ $photos['landscape'] }}" data-caption="Room to wander" data-credit="https://www.pexels.com/photo/35910045/" aria-label="View full photograph: Room to wander"><img src="{{ $img($photos['landscape'], 700) }}" width="600" height="750" loading="lazy" decoding="async" alt="A small figure walking through the vast amanartourism hills"><span>Room to wander {!! $icon('arrow-up') !!}</span></button>
                 <button class="gallery-item" type="button" data-gallery="{{ $photos['tea'] }}" data-caption="One more cup" data-credit="https://www.pexels.com/photo/36579351/" aria-label="View full photograph: One more cup"><img src="{{ $img($photos['tea'], 650) }}" width="600" height="750" loading="lazy" decoding="async" alt="Tea being poured from a silver Moroccan teapot"><span>One more cup {!! $icon('arrow-up') !!}</span></button>
-                <button class="gallery-item" type="button" data-gallery="{{ $photos['camel'] }}" data-caption="Take the scenic route" data-credit="https://www.pexels.com/photo/36579390/" aria-label="View full photograph: Take the scenic route"><img src="{{ $img($photos['camel'], 700) }}" width="600" height="750" loading="lazy" decoding="async" alt="Camels with colorful woven saddles in Agafay"><span>The scenic route {!! $icon('arrow-up') !!}</span></button>
+                <button class="gallery-item" type="button" data-gallery="{{ $photos['camel'] }}" data-caption="Take the scenic route" data-credit="https://www.pexels.com/photo/36579390/" aria-label="View full photograph: Take the scenic route"><img src="{{ $img($photos['camel'], 700) }}" width="600" height="750" loading="lazy" decoding="async" alt="Camels with colorful woven saddles in amanartourism"><span>The scenic route {!! $icon('arrow-up') !!}</span></button>
                 <button class="gallery-item" type="button" data-gallery="{{ $photos['breakfast'] }}" data-caption="Mornings, unhurried" data-credit="https://www.pexels.com/photo/18160499/" aria-label="View full photograph: Mornings, unhurried"><img src="{{ $img($photos['breakfast'], 650) }}" width="600" height="750" loading="lazy" decoding="async" alt="A generous breakfast with a view of the desert"><span>Mornings, unhurried {!! $icon('arrow-up') !!}</span></button>
             </div>
         </div>
@@ -1832,7 +1832,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
         </div>
         <div class="container contact-grid">
             <div class="contact-copy reveal"><div class="eyebrow" data-i18n="contact_badge">Good days start with a hello</div><h2 id="contact-title"><span data-i18n="contact_title_a">Tell us what</span><br><span data-i18n="contact_title_b">you’re</span> <em data-i18n="contact_title_c">dreaming of.</em></h2><p data-i18n="contact_intro">Not sure which experience to choose? Planning something special? Share a little about your trip, and let’s give your idea a place to begin.</p>
-                <div class="contact-detail">{!! $icon('pin') !!}<div><strong data-i18n="contact_place">Marrakech & Agafay, Morocco</strong><small data-i18n="contact_place_sub">The setting for your next travel story</small></div></div>
+                <div class="contact-detail">{!! $icon('pin') !!}<div><strong data-i18n="contact_place">Marrakech & amanartourism, Morocco</strong><small data-i18n="contact_place_sub">The setting for your next travel story</small></div></div>
                 <div class="contact-detail">{!! $icon('chat') !!}<div><strong data-i18n="contact_help_title">A little help with the details</strong><small data-i18n="contact_help_sub">Your dates, your group, your kind of day</small></div></div>
                 @if ($site['email'])
                 <div class="contact-detail">{!! $icon('mail') !!}<a href="mailto:{{ $site['email'] }}">{{ $site['email'] }}</a></div>
@@ -1843,7 +1843,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
                 @if ($site['whatsapp'])
                 <a class="text-link" href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $site['whatsapp']) }}" target="_blank" rel="noopener noreferrer">Start a WhatsApp conversation {!! $icon('arrow-up') !!}</a>
                 @endif
-                <div class="contact-mini"><img src="{{ $img($photos['quadwide'], 700) }}" width="700" height="350" loading="lazy" decoding="async" alt="A guided quad group moving across the Agafay landscape"><span>Your kind of adventure is out there.</span></div>
+                <div class="contact-mini"><img src="{{ $img($photos['quadwide'], 700) }}" width="700" height="350" loading="lazy" decoding="async" alt="A guided quad group moving across the amanartourism landscape"><span>Your kind of adventure is out there.</span></div>
             </div>
             <div class="contact-form-card">
                 <h3 class="form-heading">Let’s plan something lovely.</h3><p class="form-subtitle">A few details are all it takes to get started.</p>
@@ -1876,7 +1876,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             <svg class="decor-mark decor-mark--desert decor-slot-d" viewBox="0 0 640 190" aria-hidden="true" focusable="false"><use href="#decor-desert"></use></svg>
             <svg class="decor-mark decor-mark--sparkles decor-slot-e decor-secondary" viewBox="0 0 120 120" aria-hidden="true" focusable="false"><use href="#decor-sparkles"></use></svg>
             <svg class="decor-mark decor-mark--palm decor-slot-f decor-secondary" viewBox="0 0 150 210" aria-hidden="true" focusable="false"><use href="#decor-palm"></use></svg>
-        </div><div class="container reveal">{!! $icon('sun') !!}<h2 id="closing-title">Come for the day.<br>Take the feeling home.</h2><p>Your next favorite travel story might start right here.</p><a class="button" href="#experiences">Find my Agafay moment {!! $icon('arrow-up') !!}</a></div></section>
+        </div><div class="container reveal">{!! $icon('sun') !!}<h2 id="closing-title">Come for the day.<br>Take the feeling home.</h2><p>Your next favorite travel story might start right here.</p><a class="button" href="#experiences">Find my amanartourism moment {!! $icon('arrow-up') !!}</a></div></section>
 </main>
 <footer class="decorated-section site-footer">
         <div class="ambient-decor ambient-decor--footer" aria-hidden="true">
@@ -1890,27 +1890,27 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             <div class="footer-brand"><a class="brand" href="#home" aria-label="{{ $site['name'] }} home"><svg class="brand-symbol" viewBox="0 0 52 52" fill="none" aria-hidden="true"><path d="M7 43V25a19 19 0 0 1 38 0v18" stroke="currentColor" stroke-width="1.5"/><circle cx="26" cy="22" r="7" fill="currentColor"/><path d="M9 39c13-14 20-5 34-7M9 44c15-12 23-3 34-7" stroke="currentColor" stroke-width="1.5"/></svg><span><span class="brand-name">{{ $site['name'] }}</span><span class="brand-tagline">{{ $site['tagline'] }}</span></span></a><p>For the days that feel a little different.<br>Thoughtful escapes, open horizons,<br>and more of what makes Morocco special.</p></div>
             <div class="footer-column"><h3>A little exploring</h3><a href="#experiences">All experiences</a><a href="#about">Our story</a><a href="#moments">The moments</a><a href="#stories">Guest stories</a></div>
             <div class="footer-column"><h3>A little help</h3><a href="#faq">Before you go</a><a href="#contact">Get in touch</a><a href="#contact" data-custom-inquiry>Private & group trips</a><button type="button" data-privacy>Privacy & your details</button></div>
-            <div class="footer-column"><h3>Somewhere worth going</h3><span>Marrakech & Agafay<br>Morocco</span>
+            <div class="footer-column"><h3>Somewhere worth going</h3><span>Marrakech & amanartourism<br>Morocco</span>
                 @if ($site['email'])
                 <a href="mailto:{{ $site['email'] }}">{{ $site['email'] }}</a>
                 @endif
                 <small class="footer-note">A request starts the conversation.<br>Your operator confirms the final details.</small>
             </div>
         </div>
-        <div class="footer-bottom"><span>© {{ date('Y') }} {{ $site['name'] }}. A different kind of day.</span><span>Photography: <a href="https://www.pexels.com/search/agafay/" target="_blank" rel="noopener noreferrer">Pexels</a> · Illustrative locations</span><a class="text-link" href="#home">Back to the sunshine {!! $icon('arrow-up') !!}</a></div>
+        <div class="footer-bottom"><span>© {{ date('Y') }} {{ $site['name'] }}. A different kind of day.</span><span>Photography: <a href="https://www.pexels.com/search/amanartourism/" target="_blank" rel="noopener noreferrer">Pexels</a> · Illustrative locations</span><a class="text-link" href="#home">Back to the sunshine {!! $icon('arrow-up') !!}</a></div>
         @if ($site['demoContent'])
         <p class="footer-preview">This is a design preview with sample brand content, rates, and testimonials. Confirm the real business details, policies, suppliers, and images before publishing. No verified ratings are claimed.</p>
         @endif
     </div>
 </footer>
-<div class="mobile-bookbar" id="mobile-bookbar"><div><strong>A day worth remembering.</strong><small>Find your kind of Agafay.</small></div><a class="button button-primary" href="#experiences">Explore {!! $icon('arrow-up') !!}</a></div>
+<div class="mobile-bookbar" id="mobile-bookbar"><div><strong>A day worth remembering.</strong><small>Find your kind of amanartourism.</small></div><a class="button button-primary" href="#experiences">Explore {!! $icon('arrow-up') !!}</a></div>
 <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
 {{-- Activity details: one reusable dialog, populated safely from the package data. --}}
 <dialog id="experience-dialog" class="experience-dialog" aria-labelledby="detail-title">
     <button class="icon-button dialog-close" type="button" data-close aria-label="Close experience details">{!! $icon('close') !!}</button>
     <div class="experience-layout">
-        <div class="experience-image"><img id="detail-image" alt="" width="800" height="1100"><div class="experience-image-caption"><span class="eyebrow" id="detail-tag"></span><strong>A day to call<br>your own.</strong><small>{!! $icon('pin') !!} Agafay, Morocco</small></div></div>
+        <div class="experience-image"><img id="detail-image" alt="" width="800" height="1100"><div class="experience-image-caption"><span class="eyebrow" id="detail-tag"></span><strong>A day to call<br>your own.</strong><small>{!! $icon('pin') !!} amanartourism, Morocco</small></div></div>
         <div class="experience-content">
             <div class="experience-scroll" id="experience-scroll">
                 <div class="experience-heading"><div class="eyebrow" id="detail-category"></div><h2 id="detail-title" tabindex="-1">Your experience</h2></div>
@@ -1971,19 +1971,19 @@ Do not remove the preview warnings merely to make an unconnected form look live.
     @endif
     <p>Only the IDs of experiences you save with the heart button are kept on this device. Clearing your browser’s site data removes them. This page does not include analytics or advertising trackers.</p><p>Photography, fonts, and animation files are loaded from Pexels, Google Fonts, and jsDelivr. Loading these files makes requests to those providers.</p><p>The site owner must supply the actual business privacy notice before collecting real customer information. This explanation is not a complete legal policy.</p><button class="button button-green" type="button" id="privacy-back">Got it {!! $icon('check') !!}</button>
 </dialog>
-<dialog id="lightbox-dialog" class="lightbox-dialog" aria-labelledby="lightbox-title"><button class="icon-button dialog-close" type="button" data-close aria-label="Close photograph">{!! $icon('close') !!}</button><img id="lightbox-image" width="1200" height="900" alt=""><div class="lightbox-caption"><h2 id="lightbox-title" tabindex="-1">An Agafay moment</h2><p>Illustrative photography · <a id="lightbox-credit" href="https://www.pexels.com/" target="_blank" rel="noopener noreferrer">View on Pexels</a></p></div></dialog>
-<script id="agafay-data" type="application/json">{!! json_encode($client, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_UNESCAPED_UNICODE | JSON_INVALID_UTF8_SUBSTITUTE) !!}</script>
+<dialog id="lightbox-dialog" class="lightbox-dialog" aria-labelledby="lightbox-title"><button class="icon-button dialog-close" type="button" data-close aria-label="Close photograph">{!! $icon('close') !!}</button><img id="lightbox-image" width="1200" height="900" alt=""><div class="lightbox-caption"><h2 id="lightbox-title" tabindex="-1">An amanartourism moment</h2><p>Illustrative photography · <a id="lightbox-credit" href="https://www.pexels.com/" target="_blank" rel="noopener noreferrer">View on Pexels</a></p></div></dialog>
+<script id="amanartourism-data" type="application/json">{!! json_encode($client, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_UNESCAPED_UNICODE | JSON_INVALID_UTF8_SUBSTITUTE) !!}</script>
 <script>
 (() => {
     'use strict';
     // Page behavior is deliberately independent from the animation CDN.
     const $ = (selector, root = document) => root.querySelector(selector);
     const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
-    const data = JSON.parse($('#agafay-data').textContent);
+    const data = JSON.parse($('#amanartourism-data').textContent);
     const packages = new Map(data.packages.map(item => [String(item.id), item]));
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const state = {category: 'all', search: '', savedOnly: false, selected: null, planDate: '', planGuests: 2, planRevision: 0};
-    const storageKey = 'agafay:saved:v1';
+    const storageKey = 'amanartourism:saved:v1';
     const moneyFormatter = new Intl.NumberFormat('en-US', {maximumFractionDigits: 0});
     const money = amount => `${data.currency} ${moneyFormatter.format(amount)}`;
     const photo = (url, width = 1100) => `${url}?auto=compress&cs=tinysrgb&w=${width}&q=82`;
@@ -2016,7 +2016,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             hero_title_a: 'A different',
             hero_title_b: 'kind of day.',
             hero_title_c: '<em>A lasting feeling.</em>',
-            hero_text: 'Camel trails. Golden skies. Mint tea, poured slowly. Discover the Agafay moments you will take home with you.',
+            hero_text: 'Camel trails. Golden skies. Mint tea, poured slowly. Discover the amanartourism moments you will take home with you.',
             hero_cta: 'Explore the experiences',
             hero_about_link: 'A little about us',
             hero_seal_a: 'Less ordinary',
@@ -2029,7 +2029,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             about_title_a: 'Not just a place.',
             about_title_b: 'A way to feel.',
             about_copy_1: 'We believe the best travel days are not always the busiest ones. Sometimes they are a quiet trail, an open horizon, and a warm welcome over a glass of mint tea.',
-            about_copy_2: 'That is the idea behind AGAFAY: a collection of experiences for slowing down, trying something new, and making a little more of your time in Morocco.',
+            about_copy_2: 'That is the idea behind amanartourism: a collection of experiences for slowing down, trying something new, and making a little more of your time in Morocco.',
             about_point_1: 'Find your own<br>kind of adventure',
             about_point_2: 'Make space for<br>something memorable',
             about_signature: 'See you beyond the city.',
@@ -2057,7 +2057,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             contact_title_b: 'you’re',
             contact_title_c: 'dreaming of.',
             contact_intro: 'Not sure which experience to choose? Planning something special? Share a little about your trip, and let’s give your idea a place to begin.',
-            contact_place: 'Marrakech & Agafay, Morocco',
+            contact_place: 'Marrakech & amanartourism, Morocco',
             contact_place_sub: 'The setting for your next travel story',
             contact_help_title: 'A little help with the details',
             contact_help_sub: 'Your dates, your group, your kind of day'
@@ -2080,7 +2080,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             hero_title_a: 'Un autre',
             hero_title_b: 'genre de journée.',
             hero_title_c: '<em>Un souvenir durable.</em>',
-            hero_text: 'Chemins de chameau. Cieux dorés. Thé à la menthe, servi doucement. Découvrez les moments Agafay que vous emporterez avec vous.',
+            hero_text: 'Chemins de chameau. Cieux dorés. Thé à la menthe, servi doucement. Découvrez les moments amanartourism que vous emporterez avec vous.',
             hero_cta: 'Découvrir les expériences',
             hero_about_link: 'Un peu à propos de nous',
             hero_seal_a: 'Moins ordinaire',
@@ -2093,7 +2093,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             about_title_a: 'Pas seulement un lieu.',
             about_title_b: 'Une façon de se sentir.',
             about_copy_1: 'Nous croyons que les meilleures journées de voyage ne sont pas toujours les plus chargées. Parfois, ce sont un sentier paisible, un horizon ouvert et un accueil chaleureux autour d’un thé à la menthe.',
-            about_copy_2: 'C’est l’idée derrière AGAFAY : une collection d’expériences pour ralentir, essayer quelque chose de nouveau et profiter un peu plus de votre temps au Maroc.',
+            about_copy_2: 'C’est l’idée derrière amanartourism : une collection d’expériences pour ralentir, essayer quelque chose de nouveau et profiter un peu plus de votre temps au Maroc.',
             about_point_1: 'Trouvez votre propre<br>genre d’aventure',
             about_point_2: 'Faites de la place<br>à quelque chose de mémorable',
             about_signature: 'À bientôt au-delà de la ville.',
@@ -2121,7 +2121,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             contact_title_b: 'que vous',
             contact_title_c: 'rêvez.',
             contact_intro: 'Vous ne savez pas quelle expérience choisir ? Vous planifiez quelque chose de spécial ? Partagez un peu sur votre voyage et donnons un point de départ à votre idée.',
-            contact_place: 'Marrakech & Agafay, Maroc',
+            contact_place: 'Marrakech & amanartourism, Maroc',
             contact_place_sub: 'Le cadre de votre prochaine histoire de voyage',
             contact_help_title: 'Un peu d’aide pour les détails',
             contact_help_sub: 'Vos dates, votre groupe, votre type de journée'
@@ -2157,7 +2157,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             about_title_a: 'ليس مجرد مكان.',
             about_title_b: 'طريقة للعيش.',
             about_copy_1: 'نؤمن أن أفضل أيام السفر ليست دائمًا الأكثر ازدحامًا. أحيانًا تكون مسارًا هادئًا، وأفقًا مفتوحًا، واستقبالًا دافئًا فوق كوب شاي النعناع.',
-            about_copy_2: 'هذه هي الفكرة وراء AGAFAY: مجموعة من التجارب للتباطؤ وتجربة أشياء جديدة وإعطاء وقتك في المغرب مزيدًا من المعنى.',
+            about_copy_2: 'هذه هي الفكرة وراء amanartourism: مجموعة من التجارب للتباطؤ وتجربة أشياء جديدة وإعطاء وقتك في المغرب مزيدًا من المعنى.',
             about_point_1: 'اكتشف نوعك الخاص<br>من المغامرة',
             about_point_2: 'خصص مساحة<br>لأشياء لا تنسى',
             about_signature: 'حتى اللقاء خارج المدينة.',
@@ -2191,7 +2191,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             contact_help_sub: 'تواريخك، مجموعتك، وطبيعة يومك'
         }
     };
-    const localeState = { current: localStorage.getItem('agafay-locale') || 'en' };
+    const localeState = { current: localStorage.getItem('amanartourism-locale') || 'en' };
     function setLocaleMenu(open) {
         const menu = $('#locale-menu');
         const toggle = $('#locale-toggle');
@@ -2213,7 +2213,7 @@ Do not remove the preview warnings merely to make an unconnected form look live.
             button.classList.toggle('is-active', active);
             button.setAttribute('aria-checked', String(active));
         });
-        try { localStorage.setItem('agafay-locale', lang); } catch (_) {}
+        try { localStorage.setItem('amanartourism-locale', lang); } catch (_) {}
         setLocaleMenu(false);
     }
     $('#locale-toggle')?.addEventListener('click', () => {

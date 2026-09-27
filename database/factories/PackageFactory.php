@@ -24,7 +24,7 @@ class PackageFactory extends Factory
             'image' => fake()->imageUrl(),
             'price' => fake()->randomFloat(2, 100, 2000),
             'duration' => fake()->randomElement(['2 hours', 'Half day', 'Full day']),
-            'location' => 'Agafay, Morocco',
+            'location' => 'amanartourism, Morocco',
             'category' => fake()->randomElement(['adventure', 'food', 'relax']),
             'max_guests' => fake()->numberBetween(4, 12),
             'status' => true,
